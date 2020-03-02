@@ -1,3 +1,6 @@
-#include<string>
+#include "Can.h"
 
-const std::string CAN = "CAN";
+Can::Can()
+{
+
+}

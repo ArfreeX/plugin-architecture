@@ -1,3 +1,6 @@
-#include <string>
+#include "Usb.h"
 
-const std::string USB = "USB";
+Usb::Usb()
+{
+
+}

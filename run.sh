@@ -36,6 +36,8 @@ run() {
 		error
 	else
 		cd './bin'
+		echo 'Running programm...'
+		echo '==================='
 		./plugin_system
 	fi
 }

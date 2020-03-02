@@ -34,6 +34,7 @@ add_executable(plugin_system)
 target_sources(plugin_system
     PRIVATE
     src/main.cpp
+    src/PluginManager.cpp
     )
 target_link_libraries(plugin_system
     stdc++fs
