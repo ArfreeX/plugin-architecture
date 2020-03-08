@@ -9,7 +9,7 @@ class PluginManager
 public:
     PluginManager();
 
-    bool loadPlugins();
+    bool loadPlugins(std::string& pluginPath);
 
     bool handlePropertyChange();
 

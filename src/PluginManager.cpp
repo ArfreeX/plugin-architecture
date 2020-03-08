@@ -9,10 +9,11 @@ PluginManager::PluginManager()
 
 }
 
-bool PluginManager::loadPlugins()
+bool PluginManager::loadPlugins(std::string& pluginPath)
 {
     std::cout << "Loading plugins" << "\n";
-    void* handle = dlopen("plugin_lib/libusb.so", RTLD_LAZY);
+    std::string usbPluginPath = pluginPath + "/libusb.so";
+    void* handle = dlopen(usbPluginPath.c_str(), RTLD_LAZY);
     BasePlugin* (*create)();
 
     void (*destroy)(BasePlugin*);

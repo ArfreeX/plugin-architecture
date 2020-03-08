@@ -9,13 +9,14 @@ error() {
 }
 
 get_project_path() {
-        SCRIPT_PATH=`pwd`
-        if [[ $SCRIPT_PATH != *$ROOT_PROJECT_DIR* ]]; then
+        FULL_DIR_SCRIPT_PATH=$(dirname $(realpath $0))
+
+        if [[ $FULL_DIR_SCRIPT_PATH != *$ROOT_PROJECT_DIR* ]]; then
                 echo "Could not find project folder. Check ROOT_PROJECT_DIR."
                 error
         fi
 
-        ROOT_PROJECT_PATH=$(sed "s/$ROOT_PROJECT_DIR.*/$ROOT_PROJECT_DIR/" <<< $SCRIPT_PATH)
+        ROOT_PROJECT_PATH=$(sed "s/$ROOT_PROJECT_DIR.*/$ROOT_PROJECT_DIR/"<<<$FULL_DIR_SCRIPT_PATH)
 }
 
 build() {
@@ -45,12 +46,12 @@ build() {
 }
 
 run() {
-        if [[ ! -d "$ROOT_PROJECT_PATH/bin" ]]; then
+        if [[ ! -d "$ROOT_PROJECT_PATH/build/bin" ]]; then
 		error
 	else
 		echo 'Running programm...'
 		echo '==================='
-                $ROOT_PROJECT_PATH/bin/plugin_system
+                $ROOT_PROJECT_PATH/build/bin/plugin_system
 	fi
 }
 
@@ -73,5 +74,6 @@ if test $# -gt 0; then
 			;;
 	esac
 else
+        get_project_path
 	build
 fi
