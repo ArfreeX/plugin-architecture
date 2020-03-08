@@ -1,1 +1,1 @@
-# plugin-architecture
+# Example of plugin architecture in C++
