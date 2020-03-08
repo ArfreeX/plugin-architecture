@@ -2,13 +2,18 @@
 
 #include "PluginManager.h"
 
-enum class Properties {
 
-};
+void executePluginScenario()
+{
+    auto pluginManager = PluginManager();
+    if (not pluginManager.loadPlugins())
+    {
+        std::cerr << "Plugins could not be loaded" << "\n";
+    }
+}
 
 int main()
 {
-    auto pluginManager = PluginManager();
-	std::cout << "Hi" << std::endl;
+    executePluginScenario();
 	return(EXIT_SUCCESS);
 }

@@ -1,6 +1,8 @@
 #ifndef CAN_H
 #define CAN_H
 
+#include "plugins/BasePlugin.h"
+
 
 class Can
 {

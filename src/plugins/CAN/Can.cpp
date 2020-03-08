@@ -1,4 +1,4 @@
-#include "Can.h"
+#include "plugins/CAN/Can.h"
 
 Can::Can()
 {
